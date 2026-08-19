@@ -4,6 +4,7 @@
 int main(void) {
 
     // TODO osetrit chybove stavy a neplatne hodnoty
+    // neco jsme zmenil
 
     char znaky[256];
 
