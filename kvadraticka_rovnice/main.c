@@ -3,8 +3,25 @@
 #include <math.h>
 
 int main(void) {
-    double plocha = 100.0;
-    double vzdalenost = 3.0;
+    char buffer[256];
+
+    puts("Zadej plochu pozemku v metrech ctverecnich: ");
+    fgets(buffer, 256, stdin);
+    const double plocha = strtod(buffer, NULL);
+
+    if (plocha <= 0) {
+        perror("Plocha musi byt vetsi nez nula.");
+        return 1;
+    }
+
+    puts("Zadej vzdalenost od sousedova pozemku v metrech: ");
+    fgets(buffer, 256, stdin);
+    const double vzdalenost = strtod(buffer, NULL);
+
+    if (plocha <= 0) {
+        perror("Vzdalenost musi byt vetsi nez nula.");
+        return 1;
+    }
 
     const double a = 1.0;
     const double b = vzdalenost;
