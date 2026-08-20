@@ -11,13 +11,10 @@ int main() {
 
     int suma = mereni[0];
 
-    int index = 1;
-
-    while (index < 8)
+    for (int i = 1; i < 8; ++i)
     {
-        const int teplota = mereni[index];
+        const int teplota = mereni[i];
         suma += teplota;
-        ++index;
     }
 
     const double prumer = (double)suma / 8;
