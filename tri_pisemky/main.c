@@ -52,5 +52,6 @@ int main() {
     // 50 - 59      E - dostatecne
 
 
+
     return 0;
 }
