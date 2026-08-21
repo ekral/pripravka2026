@@ -26,8 +26,10 @@ int main() {
     fgets(buffer, sizeof(buffer), stdin);
     const long volba = strtol(buffer, NULL, 10);
 
-    // napiste podminku, ze promenna volba je 1 az 3
-
+    if (volba > 1 && volba < 4) {
+        const int index_zbrane = volba - 1;
+        printf("Zvolil jsi: %s\n", nazvy_zbrani[index_zbrane]);
+    }
 
     getchar();
 
