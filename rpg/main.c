@@ -79,7 +79,6 @@ int main() {
 
         hp_hrdina -= dp_monstrum;
 
-        // TODO Pokud je hp_hrdina zaporne, hp_hrdina jej nastavte na 0
         if (hp_hrdina < 0) {
             hp_hrdina = 0;
         }
@@ -88,6 +87,11 @@ int main() {
 
         ++kolo;
     }
+
+    // TODO napiste jestli vyhral hrdina (jeho jmeno) nebo monstrum
+
+
+
 
 
     getchar();
