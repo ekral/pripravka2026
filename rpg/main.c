@@ -26,7 +26,7 @@ int main() {
     fgets(buffer, sizeof(buffer), stdin);
     const long volba = strtol(buffer, NULL, 10);
 
-    // TODO napiste podminku, ze promenna volba je 1 az 3
+    // napiste podminku, ze promenna volba je 1 az 3
 
 
     getchar();
