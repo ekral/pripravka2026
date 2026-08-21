@@ -51,7 +51,7 @@ int main() {
 
     int kolo = 1;
 
-    while (hp_hrdina > 0 || hp_monstrum > 0) {
+    while (hp_hrdina > 0) {
         printf("--- KOLO %d ---\n", kolo);
 
         int dp_hrdina = dp_hrdina_min + (rand() % 5); // k min jsme pricetli nahodne cislo od 0 do 4
@@ -75,7 +75,7 @@ int main() {
             break;
         }
 
-        int dp_monstrum = 5 + (rand() % (dp_monstrum_max - 4));
+        const int dp_monstrum = 5 + (rand() % (dp_monstrum_max - 4));
 
         hp_hrdina -= dp_monstrum;
 
@@ -88,11 +88,12 @@ int main() {
         ++kolo;
     }
 
-    // TODO napiste jestli vyhral hrdina (jeho jmeno) nebo monstrum
-
-
-
-
+    if (hp_hrdina > 0) {
+        printf("Hrdina %s porazil monstrum v kole: %d\n", jmeno, kolo);
+    }
+    else {
+        printf("Monstrum te porazilo a vyhralo v kole: %d\n", kolo);
+    }
 
     getchar();
 
