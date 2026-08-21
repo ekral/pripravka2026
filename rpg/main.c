@@ -14,6 +14,7 @@ int main() {
     printf("jmeno tveho hrdiny je %s \n", jmeno);
 
     const char* nazvy_zbrani[] = { "mec", "sekera", "kouzelna hulka" };
+    const int dp_zbrani[] = { 12, 15, 10}; // damage points zbrani
 
     printf("vyber si zbran:\n");
 
