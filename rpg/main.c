@@ -56,6 +56,13 @@ int main() {
 
         int dp_hrdina = dp_hrdina_min + (rand() % 5); // k min jsme pricetli nahodne cislo od 0 do 4
 
+        const int cislo = rand() % 5; // od 0 do 4
+
+        if (cislo == 0) {
+            dp_hrdina = dp_hrdina * 2;
+            printf("KRITICKY DAMAGE!\n");
+        }
+
         hp_monstrum -= dp_hrdina;
 
         if (hp_monstrum < 0) {
