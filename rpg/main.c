@@ -33,7 +33,7 @@ int main() {
     int dp_hrdina_min = 4;      // damage points
     int hp_hrdina = 100;        // heal points
 
-    if (volba > 1 && volba < 4) {
+    if (volba > 0 && volba < 4) {
         const int index_zbrane = volba - 1;
 
         dp_hrdina_min = dp_zbrani[index_zbrane];
@@ -56,8 +56,11 @@ int main() {
 
         int dp_hrdina = dp_hrdina_min + (rand() % 5); // k min jsme pricetli nahodne cislo od 0 do 4
 
-        // osetrete ze hp monstra se nedostane do zaporu
         hp_monstrum -= dp_hrdina;
+
+        if (hp_monstrum < 0) {
+            hp_monstrum = 0;
+        }
 
         printf("%s zautocil dp: %2d, monstrum ma %3d hp\n", jmeno, dp_hrdina, hp_monstrum);
 
