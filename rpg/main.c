@@ -27,9 +27,18 @@ int main() {
     fgets(buffer, sizeof(buffer), stdin);
     const long volba = strtol(buffer, NULL, 10);
 
+    int dp_hrdiny = 4;          // damage points
+    int hp_hrdiny = 100;        // heal points
+
     if (volba > 1 && volba < 4) {
         const int index_zbrane = volba - 1;
-        printf("Zvolil jsi: %s\n", nazvy_zbrani[index_zbrane]);
+
+        dp_hrdiny = dp_zbrani[index_zbrane];
+
+        printf("Zvolil jsi: %s, dp: %d\n", nazvy_zbrani[index_zbrane], dp_hrdiny);
+    }
+    else {
+        printf("zvolil jsi spatne, budes pouzivat jen pesti, dp: %d.\n", dp_hrdiny);
     }
 
     getchar();
