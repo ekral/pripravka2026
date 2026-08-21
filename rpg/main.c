@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 
 int main() {
+    srand(time(NULL));
+
     char jmeno[30];
 
     printf("=== VITEJ V RPG ARENE === \n");
@@ -27,24 +30,43 @@ int main() {
     fgets(buffer, sizeof(buffer), stdin);
     const long volba = strtol(buffer, NULL, 10);
 
-    int dp_hrdina = 4;          // damage points
+    int dp_hrdina_min = 4;      // damage points
     int hp_hrdina = 100;        // heal points
 
     if (volba > 1 && volba < 4) {
         const int index_zbrane = volba - 1;
 
-        dp_hrdina = dp_zbrani[index_zbrane];
+        dp_hrdina_min = dp_zbrani[index_zbrane];
 
-        printf("Zvolil jsi: %s, dp: %d\n", nazvy_zbrani[index_zbrane], dp_hrdina);
+        printf("Zvolil jsi: %s, dp: %d\n", nazvy_zbrani[index_zbrane], dp_hrdina_min);
     }
     else {
-        printf("zvolil jsi spatne, budes pouzivat jen pesti, dp: %d.\n", dp_hrdina);
+        printf("zvolil jsi spatne, budes pouzivat jen pesti, dp: %d.\n", dp_hrdina_min);
     }
 
     int hp_monstrum = 120;
     int dp_monstrum_max = 15;
 
     printf("Z temnoty se vynorilo monstrum hp: %d, souboj zacina\n", hp_monstrum);
+
+    int kolo = 1;
+
+    while (hp_hrdina > 0 || hp_monstrum > 0) {
+        printf("--- KOLO %d ---\n", kolo);
+
+        int dp_hrdina = dp_hrdina_min + (rand() % 5); // k min jsme pricetli nahodne cislo od 0 do 4
+
+        // osetrete ze hp monstra se nedostane do zaporu
+        hp_monstrum -= dp_hrdina;
+
+        printf("%s zautocil dp: %2d, monstrum ma %3d hp\n", jmeno, dp_hrdina, hp_monstrum);
+
+        if (hp_monstrum <= 0) {
+            break;
+        }
+
+        ++kolo;
+    }
 
 
     getchar();
