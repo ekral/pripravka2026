@@ -75,6 +75,17 @@ int main() {
             break;
         }
 
+        int dp_monstrum = 5 + (rand() % (dp_monstrum_max - 4));
+
+        hp_hrdina -= dp_monstrum;
+
+        // TODO Pokud je hp_hrdina zaporne, hp_hrdina jej nastavte na 0
+        if (hp_hrdina < 0) {
+            hp_hrdina = 0;
+        }
+
+        printf("monstrum vraci uder dp: %2d, hrdina hp: %3d\n", dp_monstrum, hp_hrdina);
+
         ++kolo;
     }
 
