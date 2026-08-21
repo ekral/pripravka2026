@@ -18,6 +18,7 @@ int main() {
     const char* nazev = nazvy_zbrani[0];
     printf("%d: %s\n", 1, nazev);
 
+
     getchar();
 
     return 0;
